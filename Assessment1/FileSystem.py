@@ -2,6 +2,7 @@ import getpass
 import string
 import random
 import hashlib
+import sys
 
 def main():
     print("Hello World")
@@ -11,6 +12,11 @@ def main():
         user_input = input()
         print(user_input)
         Menu = False
+
+        #for arg in sys.argv:
+        #    print(arg)
+
+
         match user_input:
             case "Filesystem -i":
                 password_check = True
@@ -43,6 +49,7 @@ def main():
 
             case "Filesystem":
                 username = input("Username: ")
+                #check for secure password
                 password = getpass.getpass('Password: ')
                 valid_details = False
 
@@ -80,6 +87,7 @@ def main():
                             file = open("FileSystemRecords.txt", "r")
                             for line in file:
                                 if user_input in file:
+                                    print()
                                     
                         case "A":
                             print("A")
@@ -88,8 +96,8 @@ def main():
                         case "W":
                             print("W")
                         case "L":
-                            print("L")
-                            file = open("FileSystemRecords.txt", "r")
+                            print("LIST")
+                            file = open("Files.store", "r")
                             for line in file:
                                 print(line)
                                     
